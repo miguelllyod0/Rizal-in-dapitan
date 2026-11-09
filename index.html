@@ -1,0 +1,2651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rizal in Dapitan: an interactive instructional material exploring José Rizal's scientific studies, discoveries, and contributions to the community.">
+<h2 style="text-align: center; font-size: 22px;">
+  Rizal in Dapitan <b><i>"Discoveries and Contributions"</i></b>
+</h2>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--ink:#26352e;
+--muted:#66766c;
+--green:#426b50;
+--green-dark:#294d37;
+--sage:#e6efe5;
+--mint:#f1f7ef;
+--gold:#d9aa55;
+--cream:#fffaf0;
+--white:#fff;
+--line:#e2e9df;
+--blue:#e9f2f5;
+--shadow:0 16px 40px rgba(38,65,46,.09);
+}
+
+*{box-sizing:border-box;scroll-behavior:smooth}
+
+body{
+margin:0;
+background:#fbfcf8;
+color:var(--ink);
+font-family:'DM Sans',sans-serif;
+line-height:1.7;
+}
+
+h1,h2,h3,h4{
+font-family:Manrope,sans-serif;
+line-height:1.2;
+margin:0 0 14px;
+}
+
+p{margin:0 0 14px}
+
+.container{width:min(1140px,92%);margin:auto}
+
+.section{
+padding:82px 0;
+scroll-margin-top:85px;
+}
+
+.eyebrow{
+text-transform:uppercase;
+letter-spacing:2px;
+font-size:.75rem;
+font-weight:800;
+color:var(--green);
+}
+
+.section-head{
+max-width:780px;
+margin-bottom:34px;
+}
+
+.section-head h2{
+font-size:clamp(2rem,4vw,3rem);
+letter-spacing:-1px;
+}
+
+.section-head p,.muted{color:var(--muted)}
+
+.btn{
+border:0;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+padding:12px 19px;
+border-radius:13px;
+background:var(--green);
+color:white;
+text-decoration:none;
+font:700 .94rem 'DM Sans';
+cursor:pointer;
+transition:.25s;
+}
+
+.btn:hover{
+background:var(--green-dark);
+transform:translateY(-2px);
+}
+
+.btn.secondary{
+background:white;
+color:var(--green);
+border:1px solid #cbdaca;
+}
+
+.btn.gold{background:var(--gold);color:#2c3329}
+.btn.small{padding:8px 13px;font-size:.84rem}
+
+.nav{
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(255,255,255,.94);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font:800 1.05rem Manrope;
+color:var(--ink);
+text-decoration:none;
+}
+
+.brand-mark{
+width:39px;
+height:39px;
+border-radius:13px;
+background:var(--green);
+color:white;
+display:grid;
+place-items:center;
+font-size:1.2rem;
+}
+
+.nav-links{display:flex;gap:19px;align-items:center}
+
+.nav-links a{
+font-size:.86rem;
+text-decoration:none;
+color:var(--muted);
+font-weight:700;
+}
+
+.nav-links a:hover{color:var(--green)}
+
+.menu-toggle{
+display:none;
+border:0;
+background:var(--sage);
+padding:9px 12px;
+border-radius:10px;
+font-size:1.1rem;
+}
+
+.hero{
+padding:76px 0 85px;
+background:
+radial-gradient(circle at 85% 15%,#e5eee1 0,transparent 28%),
+radial-gradient(circle at 10% 90%,#f8edd8 0,transparent 34%),
+var(--cream);
+overflow:hidden;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1.08fr .92fr;
+gap:48px;
+align-items:center;
+}
+
+.hero h1{
+font-size:clamp(2.8rem,6vw,5rem);
+letter-spacing:-2.8px;
+max-width:700px;
+}
+
+.hero h1 span{color:var(--green)}
+
+.hero-copy{
+font-size:1.08rem;
+color:var(--muted);
+max-width:600px;
+margin:22px 0;
+}
+
+.tag-row{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin:22px 0;
+}
+
+.tag{
+font-size:.77rem;
+font-weight:700;
+border-radius:99px;
+padding:7px 12px;
+background:white;
+border:1px solid var(--line);
+}
+
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+.hero-visual{
+min-height:380px;
+position:relative;
+display:grid;
+place-items:center;
+}
+
+.hero-card{
+width:min(390px,90%);
+aspect-ratio:4/4.1;
+border-radius:32px;
+background:linear-gradient(145deg,#dce9d7,#f5e6c9);
+box-shadow:var(--shadow);
+position:relative;
+overflow:hidden;
+display:grid;
+place-items:center;
+}
+
+.hero-card:before{
+content:'';
+position:absolute;
+width:220px;
+height:220px;
+border-radius:50%;
+background:#e7bd70;
+top:36px;
+right:25px;
+}
+
+.hero-card:after{
+content:'';
+position:absolute;
+width:300px;
+height:155px;
+border-radius:50% 50% 0 0;
+background:#53785a;
+bottom:-35px;
+left:-30px;
+transform:rotate(-9deg);
+}
+
+.hero-symbol{
+position:relative;
+z-index:2;
+font-size:7rem;
+filter:drop-shadow(0 10px 10px #536b4930);
+}
+
+.hero-stamp{
+position:absolute;
+z-index:3;
+right:0;
+bottom:25px;
+background:white;
+padding:16px 19px;
+border-radius:17px;
+box-shadow:var(--shadow);
+font-weight:800;
+transform:rotate(-4deg);
+}
+
+.hero-stamp small{
+display:block;
+color:var(--muted);
+font-weight:600;
+}
+
+.hero-note{
+position:absolute;
+left:0;
+bottom:8px;
+background:white;
+border:1px solid var(--line);
+padding:14px 16px;
+border-radius:17px;
+max-width:210px;
+box-shadow:var(--shadow);
+font-size:.83rem;
+}
+
+.hero-note strong{
+display:block;
+color:var(--green);
+}
+
+.info-strip{
+background:var(--green-dark);
+color:white;
+padding:25px 0;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.info-grid div{
+display:flex;
+gap:12px;
+align-items:flex-start;
+}
+
+.info-grid b{display:block}
+.info-grid span{font-size:.88rem;color:#e0e9df}
+.info-icon{font-size:1.5rem}
+
+.soft{background:#f1f5ef}
+
+.objectives{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.objective{
+background:white;
+border:1px solid var(--line);
+border-radius:19px;
+padding:21px;
+display:flex;
+gap:15px;
+align-items:flex-start;
+box-shadow:0 6px 18px rgba(38,65,46,.035);
+}
+
+.objective-icon{
+width:43px;
+height:43px;
+flex-shrink:0;
+border-radius:13px;
+background:var(--sage);
+display:grid;
+place-items:center;
+font-size:1.25rem;
+}
+
+.objective h3{font-size:1rem;margin-bottom:6px}
+.objective p{font-size:.9rem;color:var(--muted);margin:0}
+
+.discovery-intro{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+align-items:center;
+margin-bottom:32px;
+}
+
+.discovery-intro .callout{
+background:var(--cream);
+border-left:4px solid var(--gold);
+padding:22px;
+border-radius:0 16px 16px 0;
+}
+
+.discovery-list{display:grid;gap:24px}
+
+.discovery-card{
+background:white;
+border:1px solid var(--line);
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 9px 28px rgba(38,65,46,.055);
+}
+
+.discovery-header{
+display:grid;
+grid-template-columns:75px 1fr auto;
+gap:17px;
+align-items:center;
+padding:25px;
+cursor:pointer;
+}
+
+.discovery-number{
+width:61px;
+height:61px;
+border-radius:19px;
+background:var(--sage);
+display:grid;
+place-items:center;
+font:800 1.4rem Manrope;
+color:var(--green);
+}
+
+.discovery-header h3{font-size:1.25rem;margin:0 0 5px}
+.discovery-header p{font-size:.88rem;color:var(--muted);margin:0}
+
+.expand-icon{
+width:37px;
+height:37px;
+border-radius:50%;
+background:var(--mint);
+display:grid;
+place-items:center;
+font-size:1.2rem;
+transition:.3s;
+}
+
+.discovery-card.active .expand-icon{transform:rotate(45deg)}
+
+.discovery-content{
+display:grid;
+grid-template-rows:0fr;
+transition:grid-template-rows .55s ease;
+}
+
+.discovery-card.active .discovery-content{
+grid-template-rows:1fr;
+}
+
+.discovery-inner{overflow:hidden}
+
+.discovery-body{
+padding:0 25px 27px;
+border-top:1px solid var(--line);
+}
+
+.discovery-description{
+padding-top:22px;
+color:#53645a;
+}
+
+.discovery-layout{
+display:grid;
+grid-template-columns:.9fr 1.1fr;
+gap:25px;
+margin-top:20px;
+align-items:start;
+}
+
+.discovery-image{
+min-height:245px;
+border-radius:18px;
+background:linear-gradient(140deg,#e6efe1,#f8efd9);
+position:relative;
+overflow:hidden;
+display:grid;
+place-items:center;
+}
+
+.discovery-image img{
+width:100%;
+height:100%;
+min-height:245px;
+object-fit:cover;
+display:block;
+}
+
+.image-placeholder{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+color:var(--green-dark);
+gap:7px;
+}
+
+.image-placeholder span{font-size:2.5rem}
+.image-placeholder b{font-family:Manrope}
+.image-placeholder small{font-size:.78rem;color:var(--muted)}
+
+.benefit-title{
+font:800 1rem Manrope;
+color:var(--green);
+margin:22px 0 13px;
+}
+
+.benefit-flow{display:grid;gap:10px}
+  /* SPACING FOR THE THREE NOTABLE EXAMPLES */
+.outcome-list{
+display:grid;
+gap:16px;
+}
+
+.outcome-list .benefit-step{
+padding:17px;
+gap:15px;
+}
+
+.outcome-list .benefit-step p{
+margin-top:6px;
+line-height:1.7;
+}
+
+.benefit-step{
+display:grid;
+grid-template-columns:43px 1fr;
+gap:12px;
+align-items:start;
+padding:13px;
+background:#f7faf5;
+border:1px solid #e5eee2;
+border-radius:14px;
+opacity:0;
+transform:translateY(12px);
+transition:opacity .45s ease,transform .45s ease;
+}
+
+.discovery-card.active .benefit-step{
+opacity:1;
+transform:translateY(0);
+}
+
+.discovery-card.active .benefit-step:nth-child(2){transition-delay:.12s}
+.discovery-card.active .benefit-step:nth-child(3){transition-delay:.24s}
+
+.benefit-arrow{
+width:36px;
+height:36px;
+border-radius:12px;
+background:#e2efdf;
+color:var(--green);
+display:grid;
+place-items:center;
+font-size:1.15rem;
+font-weight:800;
+}
+
+.benefit-step b{display:block;margin-bottom:3px}
+.benefit-step p{font-size:.87rem;color:var(--muted);margin:0}
+
+.history-note{
+margin-top:17px;
+padding:14px 16px;
+background:#fff8e9;
+border:1px solid #f0e2c5;
+border-radius:13px;
+font-size:.85rem;
+color:#6f5b37;
+}
+
+.keywords{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+.keyword{
+padding:6px 10px;
+border-radius:99px;
+background:var(--sage);
+color:var(--green-dark);
+font-size:.75rem;
+font-weight:700;
+}
+
+.panel{
+padding:28px;
+background:white;
+border:1px solid var(--line);
+border-radius:23px;
+box-shadow:var(--shadow);
+}
+
+.quiz-progress{
+height:9px;
+background:#edf1eb;
+border-radius:99px;
+overflow:hidden;
+margin:17px 0 20px;
+}
+
+.quiz-progress span{
+display:block;
+height:100%;
+width:0;
+background:var(--green);
+transition:.35s;
+}
+
+.answers{display:grid;gap:10px;margin:18px 0}
+
+.answer{
+border:1px solid var(--line);
+background:white;
+border-radius:13px;
+padding:13px 15px;
+text-align:left;
+font:600 .93rem 'DM Sans';
+cursor:pointer;
+color:var(--ink);
+transition:.2s;
+}
+
+.answer:hover{border-color:var(--green);background:#f7faf5}
+.answer.correct{background:#e7f6e8;border-color:#6bb27a}
+.answer.wrong{background:#fff0e8;border-color:#df9879}
+.answer:disabled{cursor:default}
+
+.feedback{
+min-height:35px;
+font-weight:700;
+color:var(--green);
+font-size:.9rem;
+margin:12px 0;
+}
+
+.quiz-meta{
+display:flex;
+justify-content:space-between;
+gap:12px;
+font-size:.82rem;
+color:var(--muted);
+}
+
+.quiz-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+.matching-intro{
+max-width:800px;
+color:var(--muted);
+}
+
+.matching-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:24px;
+margin-top:23px;
+}
+
+.match-column h3{
+font-size:1rem;
+margin-bottom:13px;
+}
+
+.match-options{display:grid;gap:10px}
+
+.match-option{
+width:100%;
+text-align:left;
+padding:14px;
+border:1px solid var(--line);
+border-radius:14px;
+background:white;
+font:600 .9rem 'DM Sans';
+cursor:pointer;
+transition:.2s;
+color:var(--ink);
+}
+
+.match-option:hover{border-color:var(--green);background:#f7faf5}
+.match-option.selected{outline:3px solid #d6e6d1;border-color:var(--green)}
+.match-option.matched{background:#e7f6e8;border-color:#6bb27a;color:#315d3c}
+.match-option.incorrect{background:#fff0e8;border-color:#df9879}
+
+.match-feedback{
+min-height:30px;
+margin-top:17px;
+font-weight:700;
+color:var(--green);
+}
+
+.match-score{
+font-weight:800;
+color:var(--green);
+margin-top:12px;
+}
+
+.match-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
+.reflection-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.reflection-card{
+background:white;
+border:1px solid var(--line);
+border-radius:18px;
+padding:20px;
+}
+
+.reflection-card span{font-size:1.5rem}
+.reflection-card h3{font-size:1rem;margin-top:10px}
+.reflection-card p{font-size:.87rem;color:var(--muted);margin:0}
+
+.timeline{display:grid;gap:0}
+
+.timeline-item{
+display:grid;
+grid-template-columns:120px 1fr;
+gap:20px;
+padding:19px 0;
+border-bottom:1px solid var(--line);
+}
+
+.timeline-item:last-child{border:0}
+.timeline-date{font-weight:800;color:var(--green)}
+.timeline-item p{color:var(--muted);font-size:.9rem;margin:0}
+
+.sources{display:grid;gap:12px}
+
+.source-link{
+display:block;
+padding:15px 17px;
+border:1px solid var(--line);
+border-radius:13px;
+background:white;
+color:var(--green-dark);
+text-decoration:none;
+font-weight:700;
+font-size:.9rem;
+transition:.2s;
+}
+
+.source-link:hover{
+border-color:var(--green);
+transform:translateX(3px);
+}
+
+.source-link small{
+display:block;
+font-weight:400;
+color:var(--muted);
+margin-top:4px;
+}
+
+/* ADDITIONAL DAPITAN SECTION */
+
+.dapitan-extra{
+margin-top:55px;
+padding-top:45px;
+border-top:1px solid var(--line);
+}
+
+.dapitan-extra-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:22px;
+}
+
+.dapitan-extra-card{
+background:white;
+border:1px solid var(--line);
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 9px 28px rgba(38,65,46,.055);
+transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.dapitan-extra-card:hover{
+transform:translateY(-5px);
+box-shadow:var(--shadow);
+}
+
+.dapitan-extra-image{
+height:245px;
+position:relative;
+overflow:hidden;
+background:linear-gradient(140deg,#e6efe1,#f8efd9);
+}
+
+.dapitan-extra-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.dapitan-extra-placeholder{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:22px;
+color:var(--green-dark);
+gap:8px;
+}
+
+.dapitan-extra-placeholder span{
+font-size:2.8rem;
+}
+
+.dapitan-extra-placeholder b{
+font:800 1.05rem Manrope;
+}
+
+.dapitan-extra-placeholder small{
+max-width:280px;
+color:var(--muted);
+font-size:.8rem;
+}
+
+.dapitan-extra-content{
+padding:23px;
+}
+
+.dapitan-extra-content h3{
+font-size:1.2rem;
+margin:13px 0 12px;
+}
+
+.dapitan-extra-content p{
+font-size:.9rem;
+color:var(--muted);
+}
+
+.footer{
+background:var(--green-dark);
+color:white;
+padding:35px 0;
+}
+
+.footer-inner{
+display:flex;
+justify-content:space-between;
+gap:20px;
+align-items:center;
+}
+
+.footer p{
+margin:5px 0 0;
+color:#dce8dc;
+font-size:.85rem;
+}
+
+.footer .brand{color:white}
+
+@media(max-width:850px){
+.nav-links{
+display:none;
+position:absolute;
+left:0;
+right:0;
+top:72px;
+background:white;
+padding:18px 5%;
+border-bottom:1px solid var(--line);
+flex-direction:column;
+align-items:flex-start;
+}
+.nav-links.open{display:flex}
+.menu-toggle{display:block}
+.hero-grid,.discovery-intro{grid-template-columns:1fr}
+.hero-visual{min-height:320px;order:-1}
+.info-grid{grid-template-columns:1fr}
+.discovery-layout{grid-template-columns:1fr}
+.reflection-grid{grid-template-columns:1fr 1fr}
+.dapitan-extra-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:560px){
+.section{padding:60px 0}
+.hero{padding:45px 0 65px}
+.hero h1{letter-spacing:-1.5px}
+.hero-visual{min-height:285px}
+.hero-card{width:260px}
+.hero-note{left:0;bottom:0}
+.objectives{grid-template-columns:1fr}
+.discovery-header{grid-template-columns:53px 1fr auto;padding:18px;gap:12px}
+.discovery-number{width:49px;height:49px;font-size:1.1rem}
+.discovery-header h3{font-size:1rem}
+.discovery-body{padding:0 17px 20px}
+.discovery-layout{gap:14px}
+.panel{padding:20px}
+.matching-grid{grid-template-columns:1fr;gap:20px}
+.reflection-grid{grid-template-columns:1fr}
+.timeline-item{grid-template-columns:85px 1fr;gap:12px}
+.footer-inner{align-items:flex-start;flex-direction:column}
+}
+  /* RESPONSIVE IMPROVEMENTS FOR TABLETS AND MOBILE DEVICES */
+
+/* Tablets and smaller laptops */
+@media (max-width: 1024px){
+
+.container{
+width:90%;
+}
+
+.hero-grid{
+gap:28px;
+}
+
+.hero h1{
+font-size:clamp(2.4rem,5vw,4rem);
+}
+
+.nav-links{
+gap:12px;
+}
+
+.nav-links a{
+font-size:.8rem;
+}
+
+.discovery-header{
+gap:13px;
+}
+
+.discovery-layout{
+gap:18px;
+}
+
+}
+
+/* Tablets and mobile devices */
+@media (max-width: 850px){
+
+.section{
+padding:65px 0;
+}
+
+.hero-grid,
+.discovery-intro,
+.discovery-layout{
+grid-template-columns:1fr;
+}
+
+.hero-visual{
+min-height:320px;
+order:0;
+}
+
+.info-grid{
+grid-template-columns:1fr;
+}
+
+.objectives{
+grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.discovery-image,
+.discovery-image img{
+min-height:220px;
+}
+
+.dapitan-extra-grid{
+grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+}
+
+/* Mobile phones */
+@media (max-width: 560px){
+
+.container{
+width:92%;
+}
+
+h1{
+overflow-wrap:break-word;
+}
+
+.hero h1{
+font-size:clamp(2.1rem,9vw,3rem);
+}
+
+.hero-copy{
+font-size:.96rem;
+}
+
+.hero-actions{
+flex-direction:column;
+}
+
+.hero-actions .btn{
+width:100%;
+}
+
+.objectives,
+.matching-grid,
+.reflection-grid,
+.dapitan-extra-grid{
+grid-template-columns:1fr;
+}
+
+.discovery-header{
+grid-template-columns:45px minmax(0,1fr) 32px;
+gap:9px;
+padding:15px;
+}
+
+.discovery-number{
+width:43px;
+height:43px;
+}
+
+.discovery-header h3{
+font-size:.95rem;
+}
+
+.discovery-header p{
+font-size:.78rem;
+}
+
+.discovery-body{
+padding:0 15px 20px;
+}
+
+.benefit-step{
+grid-template-columns:35px minmax(0,1fr);
+gap:9px;
+padding:12px;
+}
+
+.benefit-arrow{
+width:32px;
+height:32px;
+}
+
+.panel{
+padding:17px;
+}
+
+.quiz-actions .btn,
+.match-actions .btn{
+width:100%;
+}
+
+.answer,
+.match-option{
+font-size:.88rem;
+padding:13px;
+}
+
+.timeline-item{
+grid-template-columns:1fr;
+gap:4px;
+}
+
+.dapitan-extra-image{
+height:210px;
+}
+
+.footer-inner{
+flex-direction:column;
+}
+
+}
+
+/* Better touch controls for tablets and phones */
+button,
+.discovery-header,
+.nav-links a{
+touch-action:manipulation;
+}
+
+button{
+min-height:42px;
+}
+
+img{
+max-width:100%;
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+<div class="container nav-inner">
+<a class="brand" href="#home">
+RIZAL: THE DAPITAN YEARS
+</a>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+
+<nav class="nav-links" id="navLinks">
+<a href="#home">Home</a>
+<a href="#objectives">Objectives</a>
+<a href="#discoveries">Discoveries</a>
+<a href="#games">Quiz</a>
+<a href="#matching">Matching Game</a>
+<a href="#reflection">Reflection</a>
+<a href="#sources">References</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+<div class="container hero-grid">
+
+<div>
+<div class="eyebrow">An interactive historical learning experience</div>
+
+<h1>Discover Rizal's <span>Legacy in Dapitan</span></h1>
+
+<p class="hero-copy">
+Explore the scientific interests, animal specimens, research, and community contributions of José Rizal during his four-year exile in Dapitan. Discover how his curiosity and knowledge became meaningful contributions to science and everyday life.
+</p>
+
+<div class="tag-row">
+<span class="tag">High School Learning Material</span>
+<span class="tag">Philippine History</span>
+<span class="tag">Science and Community</span>
+<span class="tag">Interactive Activities</span>
+</div>
+
+<div class="hero-actions">
+<a class="btn" href="#discoveries">Start Exploring ↗</a>
+<a class="btn secondary" href="#objectives">View Learning Objectives</a>
+</div>
+</div>
+
+<div class="hero-visual">
+<div class="hero-card">
+<div class="hero-symbol">🌿</div>
+</div>
+
+<div class="hero-note">
+<strong>Observe. Investigate. Contribute.</strong>
+Discover how Rizal used his knowledge to understand nature and help the people of Dapitan.
+</div>
+
+<div class="hero-stamp">
+THE DAPITAN YEARS
+<small>1892–1896</small>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- INTRODUCTION STRIP -->
+
+<section class="info-strip">
+<div class="container info-grid">
+<div>
+<span class="info-icon">🔎</span>
+<span><b>Scientific Curiosity</b>Rizal observed and collected specimens from the natural environment.</span>
+</div>
+<div>
+<span class="info-icon">📚</span>
+<span><b>Continuous Learning</b>He shared knowledge and communicated with other scholars.</span>
+</div>
+<div>
+<span class="info-icon">🤝</span>
+<span><b>Community Service</b>He applied his skills to projects that addressed local needs.</span>
+</div>
+</div>
+</section>
+
+<!-- LEARNING OBJECTIVES -->
+
+<section class="section" id="objectives">
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">01 · Learning guide</div>
+<h2>Learning Objectives</h2>
+<p>At the end of this lesson, students are expected to demonstrate their understanding of Rizal's scientific activities and contributions during his exile in Dapitan.</p>
+</div>
+
+<div class="objectives">
+
+<article class="objective">
+<div class="objective-icon">🎯</div>
+<div>
+<h3>Identify</h3>
+<p>Identify the major scientific specimens, animal species, and research activities associated with José Rizal during his stay in Dapitan.</p>
+</div>
+</article>
+
+<article class="objective">
+<div class="objective-icon">🔬</div>
+<div>
+<h3>Explain</h3>
+<p>Explain how Rizal's observations and studies of animals, shells, and other natural specimens contributed to the documentation and understanding of Philippine biodiversity.</p>
+</div>
+</article>
+
+<article class="objective">
+<div class="objective-icon">🌱</div>
+<div>
+<h3>Analyze</h3>
+<p>Analyze the importance of Rizal's scientific interests and community projects by relating them to the needs and conditions of the people in Dapitan.</p>
+</div>
+</article>
+
+<article class="objective">
+<div class="objective-icon">🧩</div>
+<div>
+<h3>Connect</h3>
+<p>Connect Rizal's discoveries and contributions to the development of scientific curiosity, environmental awareness, and community responsibility among learners.</p>
+</div>
+</article>
+
+<article class="objective">
+<div class="objective-icon">💡</div>
+<div>
+<h3>Evaluate</h3>
+<p>Evaluate the significance of Rizal's work by describing how knowledge and practical skills can be used to address real-life problems.</p>
+</div>
+</article>
+
+<article class="objective">
+<div class="objective-icon">✍️</div>
+<div>
+<h3>Reflect</h3>
+<p>Express personal insights about the value of observation, research, and service to the community based on Rizal's experiences in Dapitan.</p>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- DISCOVERIES AND CONTRIBUTIONS -->
+
+<section class="section soft" id="discoveries">
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">02 · Explore the five topics</div>
+<h2>Rizal's Discoveries and Contributions in Dapitan</h2>
+<p>During his exile from 1892 to 1896, Rizal continued studying nature and applying his knowledge to practical concerns. Explore the five topics below and follow the animated arrows to understand their significance and possible benefits.</p>
+</div>
+
+<div class="discovery-intro">
+<div>
+<h3>A curious mind in a place of exile</h3>
+<p class="muted">
+Rizal's years in Dapitan were not spent doing nothing. He studied the natural environment, gathered specimens, conducted observations, practiced medicine, taught young students, and participated in community development. His activities show how learning can continue even under difficult circumstances.
+</p>
+</div>
+
+<div class="callout">
+<b>How to explore this section</b>
+<p>Click each numbered topic to reveal its explanation. Follow the arrows to see how the activity or discovery connects to scientific knowledge and the people of Dapitan.</p>
+</div>
+</div>
+
+<div class="discovery-list">
+
+<!-- TOPIC 1 -->
+
+<article class="discovery-card">
+<div class="discovery-header" role="button" tabindex="0" aria-expanded="false">
+<div class="discovery-number">01</div>
+<div>
+<h3>Collection of Animal Specimens</h3>
+<p>Exploring the wildlife and biodiversity of Dapitan</p>
+</div>
+<div class="expand-icon">＋</div>
+</div>
+
+<div class="discovery-content">
+<div class="discovery-inner">
+<div class="discovery-body">
+
+<p class="discovery-description">
+During his exile in Dapitan, José Rizal spent time exploring the surrounding forests, rivers, and coastal areas. He observed and collected different kinds of animals, including insects, reptiles, birds, fishes, crustaceans, and other organisms. He carefully examined these specimens and prepared collections that could be studied by other scientists.
+
+Rizal also communicated with European scholars, particularly Adolf Bernhard Meyer of the Dresden Museum in Germany. Through this correspondence, he was able to share specimens and contribute observations about the natural life found in the Philippines. His activities demonstrated that scientific research did not always require a large laboratory. Careful observation, documentation, and curiosity were also important parts of scientific work.
+</p>
+
+<div class="discovery-layout">
+
+<div class="discovery-image">
+<img src="Animal Specimen.jpg" alt="Animal specimens collected by Rizal in Dapitan" onerror="this.style.display='none'">
+<div class="image-placeholder">
+</div>
+</div>
+
+<div>
+<h3>What did Rizal study?</h3>
+<p class="muted">His collections represented different groups of animals and organisms found in the environment.</p>
+
+<div class="keywords">
+<span class="keyword">Insects</span>
+<span class="keyword">Reptiles</span>
+<span class="keyword">Birds</span>
+<span class="keyword">Fishes</span>
+<span class="keyword">Crustaceans</span>
+<span class="keyword">Shells</span>
+</div>
+
+<div class="benefit-title">↓ How did this contribute to knowledge?</div>
+
+<div class="benefit-flow">
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Scientific Documentation</b>
+<p>Collecting and labeling specimens provided information that could be examined, compared, and documented by researchers.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Knowledge of Philippine Biodiversity</b>
+<p>The specimens helped increase scientific knowledge about the variety of animal life found in the Philippines, including organisms from the Dapitan area.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Collaboration with Other Scientists</b>
+<p>By sharing specimens with scholars abroad, Rizal helped connect observations made in the Philippines with the wider scientific community.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="history-note">
+<b>Remember:</b> Rizal's role included collecting, observing, and sending specimens for scientific study. Other scientists examined and formally described several of the animals associated with his collections.
+</div>
+
+</div>
+</div>
+</div>
+</article>
+
+<!-- TOPIC 2 -->
+
+<article class="discovery-card">
+<div class="discovery-header" role="button" tabindex="0" aria-expanded="false">
+<div class="discovery-number">02</div>
+<div>
+<h3>Three Animal Species Named in His Honor</h3>
+<p>Recognizing Rizal's contributions to zoological studies</p>
+</div>
+<div class="expand-icon">＋</div>
+</div>
+
+<div class="discovery-content">
+<div class="discovery-inner">
+<div class="discovery-body">
+
+<p class="discovery-description">
+One of the most interesting parts of Rizal's scientific work in Dapitan was his collection of animal specimens. Some of the specimens he collected became associated with scientific names honoring him. These names were given by scientists who examined and described the specimens.
+
+Three well-known examples are <i>Draco rizali</i>, <i>Rhacophorus rizali</i>, and <i>Apogonia rizali</i>. They represent a flying lizard, a frog, and a beetle. Their scientific names became a recognition of Rizal's contribution to the study of Philippine wildlife.
+</p>
+
+<div class="discovery-layout">
+
+<div class="discovery-image">
+<img src="Species-rizali.jpg" alt="Examples of animal species named in honor of Rizal" onerror="this.style.display='none'">
+<div class="image-placeholder">
+</div>
+</div>
+
+<div>
+<h3>The three notable examples</h3>
+
+<div class="outcome-list">
+<div class="benefit-step">
+<div class="benefit-arrow">1</div>
+<div>
+<b><i>Draco rizali</i> — Flying Lizard</b>
+<p>A lizard belonging to a group known for its ability to glide from one tree to another using extended skin membranes. Its name honors Rizal's contribution to natural history.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">2</div>
+<div>
+<b><i>Rhacophorus rizali</i> — Frog</b>
+<p>A frog associated with the tree-frog group. Its scientific name is another recognition connected with Rizal's animal collections and his interest in studying wildlife.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">3</div>
+<div>
+<b><i>Apogonia rizali</i> — Beetle</b>
+<p>A beetle named in honor of Rizal. This example highlights the importance of collecting and examining even small organisms because insects are part of the diversity of an ecosystem.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="benefit-title">↓ Why are these species important?</div>
+
+<div class="benefit-flow">
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Recognition of Scientific Work</b>
+<p>The names show that Rizal's work as a naturalist was recognized by scientists beyond the Philippines.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Importance of Biodiversity</b>
+<p>These examples remind learners that different organisms have their own characteristics and roles in nature. Studying them helps people understand and appreciate wildlife.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Inspiration for Future Researchers</b>
+<p>Rizal's scientific interests demonstrate that Filipinos can contribute to research and the understanding of the natural world.</p>
+</div>
+</div>
+</div>
+
+<div class="history-note">
+<b>Scientific note:</b> These are historical names associated with Rizal's collections. Scientific classifications can change as researchers conduct new studies, so the names are presented here as examples of recognition for his work.
+</div>
+
+</div>
+</div>
+</div>
+</article>
+
+<!-- TOPIC 3 -->
+
+<article class="discovery-card">
+<div class="discovery-header" role="button" tabindex="0" aria-expanded="false">
+<div class="discovery-number">03</div>
+<div>
+<h3>Study and Documentation of Philippine Shells</h3>
+<p>Observing and classifying shells and other marine specimens</p>
+</div>
+<div class="expand-icon">＋</div>
+</div>
+
+<div class="discovery-content">
+<div class="discovery-inner">
+<div class="discovery-body">
+
+<p class="discovery-description">
+Aside from studying land animals, Rizal also showed interest in marine life and shells found around Dapitan. He gathered different kinds of shells and made observations about their physical characteristics. His work involved identifying, organizing, and documenting specimens, which are important steps in the study of natural history.
+
+His interest in shells is connected with conchology, the study of shells of mollusks. Through careful observation, a researcher can compare the shapes, sizes, patterns, and other features of shells. Rizal's notes and collections reflected his effort to understand the variety of organisms found in the coastal environment.
+</p>
+
+<div class="discovery-layout">
+
+<div class="discovery-image">
+<img src="Philippine-shells.jpeg" alt="Shell specimens from the Philippine coastal environment" onerror="this.style.display='none'">
+<div class="image-placeholder">
+</div>
+</div>
+
+<div>
+<h3>What was involved in his shell studies?</h3>
+
+<div class="benefit-flow">
+<div class="benefit-step">
+<div class="benefit-arrow">1</div>
+<div>
+<b>Collection</b>
+<p>Rizal gathered shell specimens from the coastal environment and kept them for further observation and study.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">2</div>
+<div>
+<b>Observation</b>
+<p>He examined their visible features, such as their shapes, structures, and differences. These characteristics can help distinguish one kind of shell from another.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">3</div>
+<div>
+<b>Documentation</b>
+<p>He recorded information about the specimens. His work on Philippine shells became part of his broader scientific interests during his years in Dapitan.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="benefit-title">↓ What was the value of this work?</div>
+
+<div class="benefit-flow">
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Better Understanding of Marine Biodiversity</b>
+<p>Documenting shells helped preserve information about the variety of organisms found in Philippine coastal environments.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Scientific Records for Future Study</b>
+<p>Organized observations and collections can serve as references for other researchers who want to compare and study organisms.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Environmental Awareness</b>
+<p>Studying shells encourages people to recognize that coastal organisms are part of an ecosystem that deserves attention and protection.</p>
+</div>
+</div>
+</div>
+
+<div class="history-note">
+<b>Key term:</b> Conchology is the study of shells, especially those of mollusks. It is one area of natural history connected with Rizal's scientific interests.
+</div>
+
+</div>
+</div>
+</div>
+</article>
+
+<!-- TOPIC 4 -->
+
+<article class="discovery-card">
+<div class="discovery-header" role="button" tabindex="0" aria-expanded="false">
+<div class="discovery-number">04</div>
+<div>
+<h3>Research on Freshwater Snails and Parasites</h3>
+<p>Connecting observations of nature with public health</p>
+</div>
+<div class="expand-icon">＋</div>
+</div>
+
+<div class="discovery-content">
+<div class="discovery-inner">
+<div class="discovery-body">
+
+<p class="discovery-description">
+Rizal's interests were not limited to identifying animals. His work also included observations related to health and the natural environment. One topic associated with his scientific activities involved freshwater snails and parasites.
+
+Freshwater snails are important organisms to study because some species can serve as intermediate hosts for parasites that cause diseases. Research into the relationship between organisms and their environment can help scientists understand how certain diseases are transmitted.
+
+Rizal's observations and medical knowledge reflected an interest in understanding health concerns through the study of nature. This topic illustrates how scientific observation can connect biology, medicine, and public health.
+</p>
+
+<div class="discovery-layout">
+
+<div class="discovery-image">
+<img src="Freshwater-snail.jpg" alt="Freshwater snail in its natural habitat" onerror="this.style.display='none'">
+<div class="image-placeholder">
+</div>
+</div>
+
+<div>
+<h3>Why study freshwater snails?</h3>
+
+<div class="benefit-flow">
+<div class="benefit-step">
+<div class="benefit-arrow">1</div>
+<div>
+<b>Understanding Organisms</b>
+<p>Observing freshwater snails helps researchers learn about the organisms living in freshwater environments and their relationships with other living things.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">2</div>
+<div>
+<b>Understanding Parasites</b>
+<p>Some freshwater snails are involved in the life cycles of parasites. Studying these relationships helps explain how certain diseases can spread.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">3</div>
+<div>
+<b>Connecting Science and Medicine</b>
+<p>Knowledge of organisms and parasites can help medical researchers and public health workers better understand health risks in the environment.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="benefit-title">↓ How can this knowledge benefit a community?</div>
+
+<div class="benefit-flow">
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Greater Awareness of Environmental Health</b>
+<p>Understanding how organisms live in freshwater environments can help people become more aware of possible health concerns connected with water and sanitation.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Importance of Scientific Investigation</b>
+<p>It demonstrates why researchers should study the connections between organisms, their habitats, and human health instead of looking at each issue separately.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Support for Public Health Knowledge</b>
+<p>Scientific information about parasites and their hosts can contribute to future research and community education about disease prevention.</p>
+</div>
+</div>
+</div>
+
+<div class="history-note">
+<b>Important distinction:</b> This topic is presented as part of Rizal's scientific and medical interests. It should not be interpreted as a claim that he alone discovered the parasite responsible for schistosomiasis.
+</div>
+
+</div>
+</div>
+</div>
+</article>
+
+<!-- TOPIC 5 -->
+
+<article class="discovery-card">
+<div class="discovery-header" role="button" tabindex="0" aria-expanded="false">
+<div class="discovery-number">05</div>
+<div>
+<h3>Linaw Waterworks System in Dapitan</h3>
+<p>Applying knowledge and practical skills to provide water</p>
+</div>
+<div class="expand-icon">＋</div>
+</div>
+
+<div class="discovery-content">
+<div class="discovery-inner">
+<div class="discovery-body">
+
+<p class="discovery-description">
+Aside from his scientific studies, Rizal also participated in a major community project in Dapitan: the development of a waterworks system. Together with Jesuit lay brother Juan Cota, he helped plan a system that brought water from a higher source toward the town using gravity.
+
+The project involved practical planning and an understanding of the natural slope of the land. Instead of depending entirely on manual water transport, the system was designed to allow water to flow through channels toward areas where people needed it.
+
+This project is an important example of how Rizal applied knowledge and practical skills to respond to a community concern. It also reflects his ability to work with other people in developing a useful public improvement.
+</p>
+
+<div class="discovery-layout">
+
+<div class="discovery-image">
+<img src="Linaw-waterworks.jpg" alt="Historical illustration or plan of the Linaw waterworks system" onerror="this.style.display='none'">
+<div class="image-placeholder">
+</div>
+</div>
+
+<div>
+<h3>How did the system work?</h3>
+
+<div class="benefit-flow">
+<div class="benefit-step">
+<div class="benefit-arrow">1</div>
+<div>
+<b>Identifying a Water Source</b>
+<p>The project made use of a water source located at a higher elevation than the areas that needed water.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">2</div>
+<div>
+<b>Planning the Water Route</b>
+<p>Rizal and his collaborator helped plan how water could travel from the source toward the town through a system that used gravity.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">3</div>
+<div>
+<b>Building a Practical System</b>
+<p>The project involved constructing the necessary water channels and structures to direct water toward the community.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="benefit-title">↓ What benefits did it bring to Dapitan?</div>
+
+<div class="benefit-flow">
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Improved Access to Water</b>
+<p>The waterworks helped bring water closer to parts of the community, making access more convenient for residents.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Support for Daily Activities</b>
+<p>A more accessible water supply could help residents with everyday needs, including household activities and other practical uses.</p>
+</div>
+</div>
+
+<div class="benefit-step">
+<div class="benefit-arrow">→</div>
+<div>
+<b>Example of Community Cooperation</b>
+<p>The project demonstrated how technical knowledge, planning, and collaboration can be used to improve the living conditions of a community.</p>
+</div>
+</div>
+</div>
+
+<div class="history-note">
+<b>Remember:</b> The Linaw waterworks was a community development project associated with Rizal and Jesuit lay brother Juan Cota. It was not a scientific species discovery, but it is an important example of Rizal's practical contribution to Dapitan.
+</div>
+
+</div>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- RIZAL'S CONTRIBUTIONS SUMMARY -->
+
+<section class="section" id="reflection">
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">03 · Connecting the lesson</div>
+<h2>What Can We Learn from Rizal's Work?</h2>
+<p>Rizal's experiences in Dapitan show that knowledge becomes more meaningful when it is used to understand the world and help others.</p>
+</div>
+
+<div class="reflection-grid">
+
+<article class="reflection-card">
+<span>🔍</span>
+<h3>Curiosity Leads to Discovery</h3>
+<p>Rizal's interest in animals, shells, and the environment shows the importance of asking questions and carefully observing things around us.</p>
+</article>
+
+<article class="reflection-card">
+<span>📖</span>
+<h3>Knowledge Should Be Shared</h3>
+<p>His communication with other scholars demonstrates that learning becomes more valuable when ideas and information are shared with others.</p>
+</article>
+
+<article class="reflection-card">
+<span>🤝</span>
+<h3>Skills Can Help Others</h3>
+<p>His work on the waterworks system shows that knowledge can be applied to address practical problems and improve community life.</p>
+</article>
+
+</div>
+
+<div class="panel" style="margin-top:25px">
+<div class="eyebrow">Think about it</div>
+<h3>Reflection Questions</h3>
+<ol>
+<li>Why was Rizal interested in collecting and studying different animal specimens?</li>
+<li>How did his scientific work contribute to the understanding of Philippine biodiversity?</li>
+<li>Why was the waterworks system important to the people of Dapitan?</li>
+<li>What can students learn from Rizal's ability to use knowledge for the benefit of others?</li>
+</ol>
+</div>
+
+</div>
+</section>
+
+<!-- QUIZ GAME -->
+
+<section class="section soft" id="games">
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">04 · Game 01</div>
+<h2>Knowledge Check: The Dapitan Challenge</h2>
+<p>Test what you have learned about Rizal's scientific activities and community contributions. Read each question carefully and select the best answer.</p>
+</div>
+
+  <div class="activity-instructions">
+  <h3>Directions</h3>
+  <p>Read each question carefully and select the letter of the correct answer. Choose only one answer for each question. Your score will be displayed after you complete all 15 questions.</p>
+</div>
+<div class="panel">
+
+<div class="quiz-meta">
+<span id="quizCount">Question 1 of 15</span>
+<span id="quizScore">Score: 0</span>
+</div>
+
+<div class="quiz-progress">
+<span id="quizBar"></span>
+</div>
+
+<h3 id="quizQuestion">Are you ready to explore Rizal's Dapitan years?</h3>
+<p class="muted" id="quizPrompt">Click the button below to begin the 15-item challenge.</p>
+
+<div class="answers" id="answers"></div>
+
+<div class="feedback" id="quizFeedback" aria-live="polite"></div>
+
+<div class="quiz-actions">
+<button class="btn" id="nextQuestion">Start Quiz</button>
+<button class="btn secondary" id="restartQuiz" style="display:none">Try Again</button>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- MATCHING GAME SEPARATE SECTION -->
+
+<section class="section" id="matching">
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">05 · Game 02</div>
+<h2>Species Match-Up</h2>
+<p>Can you match the scientific names with their corresponding animals? Choose one scientific name from the left column, then select its correct animal description from the right column.</p>
+</div>
+
+<div class="panel">
+
+<div class="matching-intro">
+<p><b>Directions:</b> Select a scientific name from the left column, then choose its corresponding animal from the right column. Each correct pair will be highlighted. Match all five pairs to complete the activity.</p>
+</div>
+
+<div class="quiz-progress">
+<span id="matchBar"></span>
+</div>
+
+<div class="quiz-meta">
+<span id="matchCount">0 of 5 pairs matched</span>
+<span>Matching Activity</span>
+</div>
+
+<div class="matching-grid">
+
+<div class="match-column">
+<h3>Scientific Names</h3>
+<div class="match-options" id="speciesNames"></div>
+</div>
+
+<div class="match-column">
+<h3>Animal Descriptions</h3>
+<div class="match-options" id="speciesAnimals"></div>
+</div>
+
+</div>
+
+<div class="match-feedback" id="matchFeedback" aria-live="polite">Select a scientific name to begin.</div>
+
+<div class="match-score" id="matchScore"></div>
+
+<div class="match-actions">
+<button class="btn secondary" id="resetMatch">Restart Matching Game</button>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- TIMELINE -->
+
+<section class="section soft">
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">06 · Historical context</div>
+<h2>A Short Timeline of Rizal in Dapitan</h2>
+<p>These important dates help us understand the period when Rizal carried out his scientific, educational, medical, and community activities.</p>
+</div>
+
+<div class="panel timeline">
+
+<div class="timeline-item">
+<div class="timeline-date">July 1892</div>
+<div>
+<b>Rizal arrives in Dapitan</b>
+<p>He was sent to Dapitan as a political exile and began a new chapter of his life in the town.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">1892–1896</div>
+<div>
+<b>Scientific and community activities</b>
+<p>During his stay, Rizal studied nature, collected specimens, practiced medicine, taught students, and participated in community development.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">1893 onward</div>
+<div>
+<b>Scientific correspondence and collections</b>
+<p>Rizal shared specimens and communicated with scholars, including Adolf Bernhard Meyer, about his scientific interests.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">1896</div>
+<div>
+<b>Departure from Dapitan</b>
+<p>Rizal left Dapitan on July 31, 1896, ending his four-year period of exile in the town.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- REFERENCES AND ADDITIONAL DAPITAN CONTENT -->
+
+<section class="section" id="sources">
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">07 · Further reading</div>
+<h2>References and Learning Resources</h2>
+<p>Explore these resources to learn more about Rizal's scientific interests, discoveries, and contributions during his stay in Dapitan.</p>
+</div>
+
+<div class="sources">
+
+<a class="source-link" href="https://www.dost.gov.ph/knowledge-resources/news/74-2022-news/2649-dr-jose-p-rizal-ahero-and-an-inspiration-to-modern-scientists-dost-experts.html" target="_blank" rel="noopener noreferrer">
+Department of Science and Technology (DOST)
+<small>Rizal's scientific work, animal specimens, and species named in his honor.</small>
+</a>
+
+<a class="source-link" href="https://www.dost.gov.ph/knowledge-resources/news/74-2022-news/2652-rizal-innovating-essential-public-services-for-public-good.html" target="_blank" rel="noopener noreferrer">
+Rizal, Innovating Essential Public Services for Public Good – DOST
+<small>Discusses Rizal’s innovations during his exile in Dapitan, including the Linaw waterworks system, improved fishing methods, brick-making machine, and other community projects that helped improve the lives of the people..</small>
+</a>
+  
+<a class="source-link" href="https://intramuros.gov.ph/mnr/" target="_blank" rel="noopener noreferrer">
+Intramuros Administration - Museo ni Rizal
+<small>Information about Rizal's life, scientific interests, and activities during his exile.</small>
+</a>
+
+<a class="source-link" href="https://pia.gov.ph/news/history-meets-technology-tallest-3d-printed-rizal-monument-in-ph-soon-to-rise-in-dapitan/" target="_blank" rel="noopener noreferrer">
+Philippine Information Agency (PIA)
+<small>News about the proposed 3D-printed Rizal monument in Dapitan, highlighting his contributions to science, education, medicine, and community development.</small>
+</a>
+
+<a class="source-link" href="https://www.dost.gov.ph/knowledge-resources/news/72-2021-news/2608-dr-jose-p-rizal-truly-the-scientist-for-the-people.html" target="_blank" rel="noopener noreferrer">
+Department of Science and Technology (DOST)
+<small>Rizal's contributions to science, agriculture, engineering, medicine, and community development.</small>
+</a>
+
+</div>
+
+<!-- ADDITIONAL DAPITAN DISCOVERIES -->
+
+<div class="dapitan-extra">
+
+<div class="section-head">
+<div class="eyebrow">Explore More · Dapitan</div>
+<h2>More Discoveries and Stories from Dapitan</h2>
+<p>Rizal's contributions in Dapitan went beyond collecting animal specimens. His curiosity, creativity, and practical knowledge also led him to explore other ways of understanding nature and improving the lives of the people around him.</p>
+</div>
+
+<div class="dapitan-extra-grid">
+
+<article class="dapitan-extra-card">
+
+<div class="dapitan-extra-image">
+<img src="Rizal-dapitan-nature.jpg"
+alt="Rizal exploring the natural environment in Dapitan"
+onerror="this.style.display='none'">
+
+<div class="dapitan-extra-placeholder">
+</div>
+</div>
+
+<div class="dapitan-extra-content">
+<span class="keyword">Natural History</span>
+<h3>Exploring Dapitan's Natural Environment</h3>
+<p>
+During his exile, Rizal explored the forests, coastal areas, and surroundings of Dapitan. He observed different forms of wildlife and collected specimens of plants and animals. These activities allowed him to document the biodiversity he encountered and share his observations with scientists abroad.
+</p>
+<p>
+His work reminds us that scientific learning can begin with curiosity about the environment. By observing and documenting nature, people can develop a better understanding of the organisms living around them.
+</p>
+</div>
+
+</article>
+
+<article class="dapitan-extra-card">
+
+<div class="dapitan-extra-image">
+<img src="Philippine-shells.jpeg"
+alt="Scientific specimens and natural history collections associated with Rizal"
+onerror="this.style.display='none'">
+
+<div class="dapitan-extra-placeholder">
+</div>
+</div>
+
+<div class="dapitan-extra-content">
+<span class="keyword">Scientific Research</span>
+<h3>Sharing Specimens with European Scientists</h3>
+<p>
+Rizal did not keep all his collected specimens to himself. He sent samples of animals and other natural materials to European scholars, including Adolf Bernhard Meyer of the Dresden Museum in Germany. Their correspondence helped connect his observations in the Philippines with the work of researchers abroad.
+</p>
+<p>
+Some specimens became part of scientific studies, and several animal species were eventually named in his honor. This shows how collecting, preserving, and sharing specimens can contribute to the growth of scientific knowledge.
+</p>
+</div>
+
+</article>
+
+<article class="dapitan-extra-card">
+
+<div class="dapitan-extra-image">
+<img src="Linaw Waterworks.jpeg"
+alt="Historical illustration of the Linaw waterworks in Dapitan"
+onerror="this.style.display='none'">
+
+<div class="dapitan-extra-placeholder">
+</div>
+</div>
+
+<div class="dapitan-extra-content">
+<span class="keyword">Engineering</span>
+<h3>Applying Science to Community Needs</h3>
+<p>
+Rizal also used his knowledge in engineering and practical planning to help improve the community. One example was his involvement in the waterworks system of Dapitan, developed with Jesuit lay brother Juan Cota. The system used gravity to transport water from a higher source toward the town.
+</p>
+<p>
+This project demonstrates that scientific and technical knowledge can be applied to solve everyday problems. It also highlights the importance of cooperation in developing projects that benefit a community.
+</p>
+</div>
+
+</article>
+
+<article class="dapitan-extra-card">
+
+<div class="dapitan-extra-image">
+<img src="Rizal-dapitan-school.jpg"
+alt="Illustration of Rizal teaching students in Dapitan"
+onerror="this.style.display='none'">
+
+<div class="dapitan-extra-placeholder">
+</div>
+</div>
+
+<div class="dapitan-extra-content">
+<span class="keyword">Education</span>
+<h3>Sharing Knowledge with Young Learners</h3>
+<p>
+While living in Dapitan, Rizal established a school where he taught young boys. His lessons included academic subjects as well as practical skills and activities. He encouraged his students to develop discipline, curiosity, and an appreciation for learning.
+</p>
+<p>
+His experience as a teacher shows that education was another important part of his life in exile. He did not simply gather knowledge for himself; he also shared what he knew with the younger generation.
+</p>
+</div>
+
+</article>
+
+</div>
+
+<div class="history-note" style="margin-top:25px">
+<b>Explore further:</b> These additional topics show that Rizal's Dapitan years involved scientific observation, collaboration, engineering, and education. Together, they provide a wider picture of how he used his knowledge and skills to contribute to society.
+</div>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+<div class="container footer-inner">
+<div>
+<a class="brand" href="#home">
+RIZAL: THE DAPITAN YEARS
+</a>
+<p>An Interactive Instructional Material on José Rizal's Discoveries and Contributions in Dapitan</p>
+</div>
+<p>Observe. Discover. Understand. Contribute.</p>
+</div>
+</footer>
+
+<script>
+
+/* MOBILE NAVIGATION */
+
+document.getElementById('menuToggle').addEventListener('click',()=>{
+document.getElementById('navLinks').classList.toggle('open');
+});
+
+document.querySelectorAll('#navLinks a').forEach(link=>{
+link.addEventListener('click',()=>{
+document.getElementById('navLinks').classList.remove('open');
+});
+});
+
+
+/* DISCOVERY CARD EXPANSION */
+
+document.querySelectorAll('.discovery-header').forEach(header=>{
+
+function toggleCard(){
+const card=header.closest('.discovery-card');
+const isOpen=card.classList.toggle('active');
+
+header.setAttribute('aria-expanded',String(isOpen));
+}
+
+header.addEventListener('click',toggleCard);
+
+header.addEventListener('keydown',event=>{
+if(event.key==='Enter'||event.key===' '){
+event.preventDefault();
+toggleCard();
+}
+});
+
+});
+
+
+/* GAME 01: 15-ITEM QUIZ */
+
+const quiz=[
+
+{
+q:'1. In what year did José Rizal arrive in Dapitan as an exile?',
+p:'Recall the beginning of his four-year stay.',
+a:['1887','1892','1896','1901'],
+correct:1,
+why:'Rizal arrived in Dapitan on July 17, 1892.'
+},
+
+{
+q:'2. Which European scholar did Rizal communicate with regarding his scientific collections?',
+p:'Think about the scholar associated with the Dresden Museum.',
+a:['Adolf Bernhard Meyer','Charles Darwin','Isaac Newton','Louis Pasteur'],
+correct:0,
+why:'Rizal communicated with Adolf Bernhard Meyer, a German naturalist associated with the Dresden Museum.'
+},
+
+{
+q:'3. Which of the following animals was included in Rizal’s scientific collections?',
+p:'Choose the best answer.',
+a:['Penguins only','Kangaroos only','Reptiles and insects','Polar bears only'],
+correct:2,
+why:'Rizal collected different specimens, including reptiles, insects, birds, fishes, and crustaceans.'
+},
+
+{
+q:'4. What animal is associated with the name Draco rizali?',
+p:'Remember the three notable animal names.',
+a:['Flying lizard','Beetle','Frog','Freshwater snail'],
+correct:0,
+why:'Draco rizali is associated with a flying lizard.'
+},
+
+{
+q:'5. What animal is associated with Rhacophorus rizali?',
+p:'Think about the animal that belongs to the frog group.',
+a:['Bird','Frog','Beetle','Fish'],
+correct:1,
+why:'Rhacophorus rizali is associated with a frog.'
+},
+
+{
+q:'6. What animal is associated with Apogonia rizali?',
+p:'This animal belongs to the insect group.',
+a:['Lizard','Crab','Beetle','Frog'],
+correct:2,
+why:'Apogonia rizali is a beetle.'
+},
+
+{
+q:'7. What is conchology?',
+p:'This is connected with Rizal’s studies of shells.',
+a:['Study of rocks','Study of shells','Study of stars','Study of weather'],
+correct:1,
+why:'Conchology is the study of shells, particularly those of mollusks.'
+},
+
+{
+q:'8. Why did Rizal collect and document different animal specimens?',
+p:'Consider the importance of scientific observation.',
+a:['To ignore the environment','To sell all animals','To avoid scientific work','To contribute to the study of natural history'],
+correct:3,
+why:'His collections and observations contributed to the documentation and study of Philippine biodiversity.'
+},
+
+{
+q:'9. What does the study of freshwater snails help researchers understand?',
+p:'Think about the relationship between organisms and their environment.',
+a:['Only the weather','The relationship between organisms and certain parasites','How to build houses','How to create machines'],
+correct:1,
+why:'Some freshwater snails can serve as intermediate hosts for parasites, making them relevant to biological and public health research.'
+},
+
+{
+q:'10. What was the main purpose of the Linaw waterworks project?',
+p:'Think about the needs of the residents of Dapitan.',
+a:['To provide water to parts of the community','To build a school library','To create a fishing boat','To construct a railway'],
+correct:0,
+why:'The waterworks system was designed to bring water from a higher source toward the town.'
+},
+
+{
+q:'11. Who worked with Rizal on the Dapitan waterworks project?',
+p:'Recall the collaborator mentioned in the lesson.',
+a:['Andrés Bonifacio','Juan Cota','Apolinario Mabini','Marcelo H. del Pilar'],
+correct:1,
+why:'Rizal worked with Jesuit lay brother Juan Cota on the waterworks project.'
+},
+
+{
+q:'12. What natural force helped move water through the waterworks system?',
+p:'Think about the difference in elevation.',
+a:['Magnetism','Wind pressure only','Gravity','Electricity'],
+correct:2,
+why:'The system used gravity to allow water to flow from a higher source toward lower areas.'
+},
+
+{
+q:'13. Which statement best describes Rizal’s scientific activities in Dapitan?',
+p:'Choose the most complete description.',
+a:['He only wrote stories','He avoided studying nature','He collected, observed, and documented natural specimens','He stopped learning during exile'],
+correct:2,
+why:'Rizal continued studying nature and sharing specimens and observations with other scholars.'
+},
+
+{
+q:'14. What lesson can be learned from Rizal’s work on the waterworks?',
+p:'Think about how knowledge can be applied.',
+a:['Knowledge should never be shared','Practical skills can help address community needs','Research has no real-life use','Communities cannot work together'],
+correct:1,
+why:'The waterworks demonstrates how knowledge, planning, and cooperation can address practical problems.'
+},
+
+{
+q:'15. What is the most important connection between Rizal’s scientific work and his community contributions?',
+p:'Think about the overall lesson of the Dapitan years.',
+a:['Knowledge can be used to understand nature and help people','Science is only about memorizing names','Discoveries should never be shared','Community development is unrelated to learning'],
+correct:0,
+why:'Rizal’s experiences show how curiosity, knowledge, and practical skills can contribute to society.'
+}
+
+];
+
+let quizIndex=-1;
+let quizScore=0;
+let quizAnswered=false;
+
+const quizQuestion=document.getElementById('quizQuestion');
+const quizPrompt=document.getElementById('quizPrompt');
+const answers=document.getElementById('answers');
+const quizFeedback=document.getElementById('quizFeedback');
+const quizCount=document.getElementById('quizCount');
+const quizScoreText=document.getElementById('quizScore');
+const quizBar=document.getElementById('quizBar');
+const nextQuestion=document.getElementById('nextQuestion');
+const restartQuiz=document.getElementById('restartQuiz');
+
+
+function updateQuizProgress(){
+quizBar.style.width=((quizIndex+1)/quiz.length*100)+'%';
+}
+
+
+function displayQuestion(){
+
+quizAnswered=false;
+
+const current=quiz[quizIndex];
+
+quizQuestion.textContent=current.q;
+quizPrompt.textContent=current.p;
+quizCount.textContent=`Question ${quizIndex+1} of ${quiz.length}`;
+quizScoreText.textContent=`Score: ${quizScore}`;
+quizFeedback.textContent='';
+answers.innerHTML='';
+
+current.a.forEach((choice,index)=>{
+
+const button=document.createElement('button');
+
+button.type='button';
+button.className='answer';
+button.textContent=String.fromCharCode(65+index)+'. '+choice;
+
+button.addEventListener('click',()=>{
+selectAnswer(index,button);
+});
+
+answers.appendChild(button);
+
+});
+
+updateQuizProgress();
+
+nextQuestion.disabled=true;
+nextQuestion.textContent=quizIndex===quiz.length-1?'See Results':'Next Question';
+
+}
+
+
+function selectAnswer(index,selectedButton){
+
+if(quizAnswered)return;
+
+quizAnswered=true;
+
+const current=quiz[quizIndex];
+
+[...answers.children].forEach((button,i)=>{
+
+button.disabled=true;
+
+if(i===current.correct){
+button.classList.add('correct');
+}
+
+});
+
+if(index===current.correct){
+
+quizScore++;
+
+quizFeedback.textContent='Correct! '+current.why;
+
+}else{
+
+selectedButton.classList.add('wrong');
+
+quizFeedback.textContent='Not quite. '+current.why;
+
+}
+
+quizScoreText.textContent=`Score: ${quizScore}`;
+nextQuestion.disabled=false;
+
+}
+
+
+function resetQuiz(){
+
+quizIndex=-1;
+quizScore=0;
+quizAnswered=false;
+
+quizQuestion.textContent='Are you ready to explore Rizal’s Dapitan years?';
+quizPrompt.textContent='Click the button below to begin the 15-item challenge.';
+quizCount.textContent='Question 1 of 15';
+quizScoreText.textContent='Score: 0';
+quizBar.style.width='0%';
+quizFeedback.textContent='';
+answers.innerHTML='';
+
+nextQuestion.textContent='Start Quiz';
+nextQuestion.disabled=false;
+nextQuestion.style.display='inline-flex';
+restartQuiz.style.display='none';
+
+}
+
+
+function showQuizResults(){
+
+quizQuestion.textContent=`You scored ${quizScore} out of ${quiz.length}!`;
+
+let message='Keep reviewing the lesson and try again.';
+
+if(quizScore===15){
+message='Perfect score! Excellent understanding of Rizal’s Dapitan years!';
+}else if(quizScore>=12){
+message='Excellent work! You have a strong understanding of the lesson.';
+}else if(quizScore>=9){
+message='Great job! Review a few topics to strengthen your understanding.';
+}else if(quizScore>=6){
+message='Good effort! Revisit the discovery cards and try again.';
+}
+
+quizPrompt.textContent=message;
+quizCount.textContent='Quiz Completed';
+quizScoreText.textContent=`Final Score: ${quizScore}/${quiz.length}`;
+quizBar.style.width='100%';
+quizFeedback.textContent='You have completed the Dapitan Challenge.';
+answers.innerHTML='';
+
+nextQuestion.style.display='none';
+restartQuiz.style.display='inline-flex';
+
+}
+
+
+nextQuestion.addEventListener('click',()=>{
+
+if(quizIndex===-1){
+quizIndex=0;
+displayQuestion();
+return;
+}
+
+if(!quizAnswered)return;
+
+if(quizIndex<quiz.length-1){
+quizIndex++;
+displayQuestion();
+}else{
+showQuizResults();
+}
+
+});
+
+restartQuiz.addEventListener('click',resetQuiz);
+
+
+/* GAME 02: SPECIES MATCHING */
+
+const speciesPairs=[
+
+{
+id:'draco',
+name:'Draco rizali',
+animal:'Flying Lizard',
+description:'A lizard known for gliding between trees.'
+},
+
+{
+id:'rhaco',
+name:'Rhacophorus rizali',
+animal:'Frog',
+description:'An amphibian associated with the tree-frog group.'
+},
+
+{
+id:'apogonia',
+name:'Apogonia rizali',
+animal:'Beetle',
+description:'An insect belonging to the beetle group.'
+},
+
+{
+id:'snail',
+name:'Freshwater Snail',
+animal:'Mollusk',
+description:'A soft-bodied animal that may have a shell.'
+},
+
+{
+id:'shell',
+name:'Conchology',
+animal:'Study of Shells',
+description:'The study of shells, especially those of mollusks.'
+}
+
+];
+
+let selectedName=null;
+let matchedPairs=[];
+let matchingLocked=false;
+
+const namesContainer=document.getElementById('speciesNames');
+const animalsContainer=document.getElementById('speciesAnimals');
+const matchFeedback=document.getElementById('matchFeedback');
+const matchCount=document.getElementById('matchCount');
+const matchBar=document.getElementById('matchBar');
+const matchScore=document.getElementById('matchScore');
+
+
+function shuffle(array){
+
+const copy=[...array];
+
+for(let i=copy.length-1;i>0;i--){
+
+const j=Math.floor(Math.random()*(i+1));
+
+[copy[i],copy[j]]=[copy[j],copy[i]];
+
+}
+
+return copy;
+
+}
+
+
+function updateMatchingProgress(){
+
+const count=matchedPairs.length;
+
+matchCount.textContent=`${count} of ${speciesPairs.length} pairs matched`;
+
+matchBar.style.width=(count/speciesPairs.length*100)+'%';
+
+if(count===speciesPairs.length){
+
+matchFeedback.textContent='Excellent! You matched all the items correctly!';
+matchScore.textContent='Activity completed! Great work!';
+}else{
+
+matchScore.textContent=`${count} correct pair${count===1?'':'s'} so far.`;
+
+}
+
+}
+
+
+function createMatchingGame(){
+
+selectedName=null;
+matchedPairs=[];
+matchingLocked=false;
+
+namesContainer.innerHTML='';
+animalsContainer.innerHTML='';
+
+matchFeedback.textContent='Select a scientific name to begin.';
+matchScore.textContent='';
+
+const shuffledNames=shuffle(speciesPairs);
+const shuffledAnimals=shuffle(speciesPairs);
+
+shuffledNames.forEach(pair=>{
+
+const button=document.createElement('button');
+
+button.type='button';
+button.className='match-option';
+button.textContent=pair.name;
+button.dataset.id=pair.id;
+
+button.addEventListener('click',()=>selectSpeciesName(pair.id,button));
+
+namesContainer.appendChild(button);
+
+});
+
+shuffledAnimals.forEach(pair=>{
+
+const button=document.createElement('button');
+
+button.type='button';
+button.className='match-option';
+button.textContent=pair.animal+' — '+pair.description;
+button.dataset.id=pair.id;
+
+button.addEventListener('click',()=>selectSpeciesAnimal(pair.id,button));
+
+animalsContainer.appendChild(button);
+
+});
+
+updateMatchingProgress();
+
+}
+
+
+function selectSpeciesName(id,button){
+
+if(matchingLocked)return;
+if(matchedPairs.includes(id))return;
+
+selectedName=id;
+
+namesContainer.querySelectorAll('.match-option').forEach(item=>{
+item.classList.remove('selected');
+});
+
+button.classList.add('selected');
+
+matchFeedback.textContent='Now choose the matching animal or description.';
+
+}
+
+
+function selectSpeciesAnimal(id,button){
+
+if(matchingLocked)return;
+if(matchedPairs.includes(id))return;
+
+if(selectedName===null){
+
+matchFeedback.textContent='Choose a scientific name first.';
+return;
+
+}
+
+if(selectedName===id){
+
+matchedPairs.push(id);
+
+const nameButton=namesContainer.querySelector(`[data-id="${id}"]`);
+
+if(nameButton){
+nameButton.classList.remove('selected');
+nameButton.classList.add('matched');
+nameButton.disabled=true;
+}
+
+button.classList.add('matched');
+button.disabled=true;
+
+selectedName=null;
+
+matchFeedback.textContent='Correct match! Well done.';
+
+updateMatchingProgress();
+
+}else{
+
+matchingLocked=true;
+button.classList.add('incorrect');
+
+matchFeedback.textContent='Not the correct pair. Try another match.';
+
+setTimeout(()=>{
+
+button.classList.remove('incorrect');
+
+namesContainer.querySelectorAll('.match-option').forEach(item=>{
+item.classList.remove('selected');
+});
+
+selectedName=null;
+matchingLocked=false;
+
+matchFeedback.textContent='Choose another scientific name and try again.';
+
+},750);
+
+}
+
+}
+
+
+document.getElementById('resetMatch').addEventListener('click',createMatchingGame);
+
+createMatchingGame();
+
+</script>
+</body>
+</html>
